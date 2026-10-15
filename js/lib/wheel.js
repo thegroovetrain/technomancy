@@ -10,9 +10,9 @@ function drawSigilPath(ctx, letters, cx, cy, radius, opts) {
   if (!letters || letters.length === 0) return;
   var stroke = opts.stroke || "#fff";
   var lw = opts.lineWidth || radius / 96;
-  // markers scale with the line, not the wheel
-  var startR = opts.startRadius || lw * 4;
-  var arrowLen = opts.arrowLength || lw * 8;
+  // markers: mostly sized by the wheel, nudged up by line thickness
+  var startR = opts.startRadius || radius * 0.03 + lw * 0.8;
+  var arrowLen = opts.arrowLength || radius * 0.05 + lw * 1.5;
   var spread = Math.PI / 7;
 
   var pts = [];
@@ -159,7 +159,7 @@ function witchesWheelSVG(letters, opts, meta) {
   out.push('</g>');
 
   if (letters.length > 0) {
-    var lw = 4, startR = lw * 4, arrowLen = lw * 8, spread = Math.PI / 7;
+    var lw = 4, startR = dotR * 0.03 + lw * 0.8, arrowLen = dotR * 0.05 + lw * 1.5, spread = Math.PI / 7;
     var pts = [];
     for (var j = 0; j < letters.length; j++) pts.push(pointFor(letters[j], dotR));
     out.push('<circle cx="' + pts[0].x + '" cy="' + pts[0].y + '" r="' + startR + '" fill="none" stroke="' + fg + '" stroke-width="' + lw + '"/>');

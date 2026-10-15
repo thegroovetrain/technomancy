@@ -58,7 +58,7 @@
     var radius = Math.min(w, h) * state.size;
     var lw = radius * state.thick;
     var color = state.followHue ? hslCss(state.hue + 90, 0.9, 0.6) : state.color;
-    var markers = { startRadius: lw * 4, arrowLength: lw * 8 };
+    var markers = { startRadius: radius * 0.03 + lw * 0.8, arrowLength: radius * 0.05 + lw * 1.5 };
     // dark halo first (same geometry, thicker stroke), then the colored line on top
     drawSigilPath(ctx, state.letters, w / 2, h / 2, radius, {
       stroke: "rgba(0,0,0,0.7)", lineWidth: lw * 1.8, shadowColor: "rgba(0,0,0,0.8)", shadowBlur: lw * 2.5,
