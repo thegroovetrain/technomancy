@@ -1,0 +1,123 @@
+/* Shared base styles for all technomancy tools. */
+
+:root {
+  color-scheme: dark;
+  --bg: #0b0b10;
+  --bg-elev: #15151d;
+  --fg: #e6e2d8;
+  --fg-muted: #9a958a;
+  --accent: #c69c3b;
+  --accent-soft: rgba(198, 156, 59, 0.18);
+  --border: #2a2a36;
+  --font-body: ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+  padding: 0 16px;
+}
+
+main {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+code,
+pre,
+textarea,
+input {
+  font-family: var(--font-mono);
+}
+
+textarea,
+input,
+select,
+button {
+  font-size: 1rem;
+  color: var(--fg);
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+.muted {
+  color: var(--fg-muted);
+}
+
+.tool-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.tool-list a {
+  display: block;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--fg);
+  background: var(--bg-elev);
+}
+
+.tool-list a:hover {
+  border-color: var(--accent);
+}
+
+.tool-list strong {
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.25rem;
+}

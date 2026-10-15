@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sigil Cipher</title>
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="sigil.css">
+</head>
+<body>
+  <main>
+    <header>
+      <p><a href="../../index.html">&larr; Technomancy</a></p>
+      <h1>Sigil Cipher</h1>
+      <p class="muted">A statement of intent, enciphered against a current with a Vigenère over the English Qabalah, then drawn as a line on the Witches' Wheel.</p>
+    </header>
+
+    <section>
+      <div class="eyebrow">1 · Order &amp; Value</div>
+      <h2>The English Qabalah alphabet</h2>
+      <p>Start at A and take every eleventh letter of the ordinary alphabet, wrapping around. Value is position in that order.</p>
+      <div class="alphabet" id="alphabet"></div>
+    </section>
+
+    <section>
+      <div class="eyebrow">2 · Tabula recta</div>
+      <h2>The table</h2>
+      <p>Row one is the EQ order. Each following row is the previous one shifted left by one. To encipher, find the key letter's row and the plaintext letter's column. The highlighted cells are the lookups for the current intent.</p>
+      <div class="scroll"><table class="recta" id="recta"></table></div>
+    </section>
+
+    <section>
+      <div class="eyebrow">3 · Encipher</div>
+      <h2>Intent against current</h2>
+      <form id="form">
+        <label>Statement of intent <input id="intent" value="It is my will to be free" autocomplete="off"></label>
+        <label>Key (force, current, name) <input id="key" value="FIRE" autocomplete="off"></label>
+      </form>
+      <div class="steps">
+        <div class="row"><span class="lbl">plaintext</span><span class="letters" id="pt"></span></div>
+        <div class="row"><span class="lbl">key, repeated</span><span class="letters" id="kt"></span></div>
+        <div class="row"><span class="lbl">ciphertext</span><span class="letters" id="ct"></span></div>
+        <div class="row"><span class="lbl">duplicates out</span><span class="letters out" id="sig"></span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="eyebrow">4 · Witches' Wheel</div>
+      <h2>The sigil</h2>
+      <div class="wheelwrap">
+        <canvas id="wheel" width="960" height="960"></canvas>
+        <div class="legend">
+          <p>The 26 letters sit at equal spacing around the circle in EQ order, A at the top, running clockwise. The sigil is one continuous path visiting each letter of the final string in sequence.</p>
+          <ul>
+            <li>A small circle marks the first letter.</li>
+            <li>An arrowhead marks the last letter, pointing along the final stroke.</li>
+            <li>Letters of the string are lit on the rim; the rest stay dim.</li>
+          </ul>
+          <p>Save the sigil. SVG and JSON carry the letters and key as metadata so the sigil can be loaded again later.</p>
+          <p class="exports">
+            <button type="button" id="download-png">Save PNG</button>
+            <button type="button" id="download-svg">Save SVG</button>
+            <button type="button" id="download-json">Save JSON</button>
+          </p>
+          <p><a id="cast" class="cast" href="../trance/index.html">Cast this sigil &rarr;</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../js/lib/dom.js"></script>
+  <script src="../../js/lib/eq.js"></script>
+  <script src="../../js/lib/wheel.js"></script>
+  <script src="../../js/sigil/main.js"></script>
+</body>
+</html>
